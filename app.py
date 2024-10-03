@@ -26,7 +26,7 @@ def submit_form():
         'email': data['email'],
         'service_type': data['serviceType']
     })
-    
+    print("App started successfully!")
     return jsonify({'message': 'Form submitted successfully!'}), 200
 
 if __name__ == '__main__':
