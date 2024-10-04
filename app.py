@@ -5,6 +5,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 uri = "mongodb+srv://joesa73:wq3DNdfxDtJKv6@digitalassets.9rfsg.mongodb.net/?retryWrites=true&w=majority&appName=digitalassets"
 CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # MongoDB connection setup
 client = MongoClient(uri)
