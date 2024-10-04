@@ -7,7 +7,7 @@ CORS(app, support_credentials=True, resources={r"/*": {"origins": "*"}})
 
 
 # MongoDB connection setup
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb+srv://joesa73:wq3DNdfxDtJKv6@digitalassets.9rfsg.mongodb.net/?retryWrites=true&w=majority&appName=digitalassets')
 db = client['service_requests_db']
 collection = db['requests']
 
