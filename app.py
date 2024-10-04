@@ -3,19 +3,20 @@ from pymongo import MongoClient
 from flask_cors import CORS
 
 app = Flask(__name__)
-uri = "mongodb+srv://joesa73:wq3DNdfxDtJKv6@digitalassets.9rfsg.mongodb.net/?retryWrites=true&w=majority&appName=digitalassets"
-CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+CORS(app, support_credentials=True, resources={r"/*": {"origins": "*"}})
+
 
 # MongoDB connection setup
-client = MongoClient(uri)
+client = MongoClient('mongodb://localhost:27017/')
 db = client['service_requests_db']
 collection = db['requests']
 
 @app.route('/submit-form', methods=['POST'])
 def submit_form():
+    print("Hello App!")
     data = request.get_json()
-    
+    print(data['name'])
+    print(data['email'])
     # Validate data
     if not all(k in data for k in ('name', 'phone', 'email', 'serviceType')):
         return jsonify({'error': 'Missing data fields'}), 400
@@ -27,7 +28,7 @@ def submit_form():
         'email': data['email'],
         'service_type': data['serviceType']
     })
-    print("App started successfully!")
+    
     return jsonify({'message': 'Form submitted successfully!'}), 200
 
 if __name__ == '__main__':
