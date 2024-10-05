@@ -8,7 +8,7 @@ CORS(app)
 
 
 # MongoDB connection setup
-client = MongoClient('mongodb+srv://joesa73:wq3DNdfxDtJKv6@digitalassets.9rfsg.mongodb.net/?retryWrites=true&w=majority&appName=digitalassets')
+client = MongoClient('mongodb+srv://joesa73:wq3DNdfxDtJKv6@digitalassets.9rfsg.mongodb.net/?retryWrites=true&w=majority&appName=digitalassets', ssl_cert_reqs=ssl.CERT_NONE)
 db = client['service_requests_db']
 collection = db['requests']
 
