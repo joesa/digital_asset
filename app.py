@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from pymongo import MongoClient
 from flask_cors import CORS
 import certifi
+import ssl
 
 # ca = certifi.where()
 app = Flask(__name__)
