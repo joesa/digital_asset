@@ -3,4 +3,3 @@ pymongo
 gunicorn
 Flask-Cors
 certifi
-ssl
