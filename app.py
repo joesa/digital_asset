@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
+import certifi
 from pymongo import MongoClient
 from flask_cors import CORS
-import certifi
-import ssl
+
 
 # ca = certifi.where()
 app = Flask(__name__)
@@ -11,7 +11,7 @@ CORS(app)
 
 
 # MongoDB connection setup
-client = MongoClient('mongodb+srv://joesa73:wq3DNdfxDtJKv6@digitalassets.9rfsg.mongodb.net/?retryWrites=true&w=majority&appName=digitalassets', ssl_cert_reqs=ssl.CERT_NONE)
+client = MongoClient('mongodb+srv://joesa73:wq3DNdfxDtJKv6@digitalassets.9rfsg.mongodb.net/?retryWrites=true&w=majority&appName=digitalassets', tls=True)
 db = client['service_requests_db']
 collection = db['requests']
 
